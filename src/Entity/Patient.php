@@ -48,6 +48,22 @@ class Patient
      */
     private $territoire_id;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Soignant::class)
+     */
+    private $cm_soignant_id;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Soignant::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $mr_soignant_id;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Soignant::class)
+     */
+    private $ipa_soignant_id;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -121,6 +137,42 @@ class Patient
     public function setTerritoireId(?Territoire $territoire_id): self
     {
         $this->territoire_id = $territoire_id;
+
+        return $this;
+    }
+
+    public function getCmSoignantId(): ?Soignant
+    {
+        return $this->cm_soignant_id;
+    }
+
+    public function setCmSoignantId(?Soignant $cm_soignant_id): self
+    {
+        $this->cm_soignant_id = $cm_soignant_id;
+
+        return $this;
+    }
+
+    public function getMrSoignantId(): ?Soignant
+    {
+        return $this->mr_soignant_id;
+    }
+
+    public function setMrSoignantId(?Soignant $mr_soignant_id): self
+    {
+        $this->mr_soignant_id = $mr_soignant_id;
+
+        return $this;
+    }
+
+    public function getIpaSoignantId(): ?Soignant
+    {
+        return $this->ipa_soignant_id;
+    }
+
+    public function setIpaSoignantId(?Soignant $ipa_soignant_id): self
+    {
+        $this->ipa_soignant_id = $ipa_soignant_id;
 
         return $this;
     }
