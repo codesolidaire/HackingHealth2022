@@ -37,6 +37,11 @@ class Planification
      */
     private $ordonnance;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Activite::class)
+     */
+    private $activite_libelle;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +91,18 @@ class Planification
     public function setOrdonnance(bool $ordonnance): self
     {
         $this->ordonnance = $ordonnance;
+
+        return $this;
+    }
+
+    public function getActiviteLibelle(): ?Activite
+    {
+        return $this->activite_libelle;
+    }
+
+    public function setActiviteLibelle(?Activite $activite_libelle): self
+    {
+        $this->activite_libelle = $activite_libelle;
 
         return $this;
     }
